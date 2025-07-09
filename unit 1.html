@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: You and Me - Interactive Learning</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0e8f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #6a0dad;
+            font-size: 2.5em;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e6d3f0;
+            border-radius: 10px;
+        }
+        .audio-player, .video-player {
+            margin: 10px 0;
+        }
+        .interactive {
+            background: #c8a2e0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .upload-area {
+            border: 2px dashed #6a0dad;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        button {
+            background: #6a0dad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4d0879;
+        }
+        .comment-section textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit 1: You and Me</h1>
+
+        <!-- Listening Section -->
+        <div class="section" id="listening">
+            <h2>Listening</h2>
+            <div class="audio-player">
+                <audio controls>
+                    <source src="audio/unit1_listening.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+            <p>Listen and repeat the sentences. Circle the correct words you hear.</p>
+            <div class="interactive">
+                <p>1. I'm 12 years old. / B. I am 12 years old.</p>
+                <p>2. A. What's your last name? / B. What is your last name?</p>
+                <button onclick="checkListening()">Check Answers</button>
+            </div>
+        </div>
+
+        <!-- Vocabulary Section -->
+        <div class="section" id="vocabulary">
+            <h2>Vocabulary</h2>
+            <p>Learn new words: Hello, Nice to meet you, Friend, Class.</p>
+            <div class="video-player">
+                <video controls>
+                    <source src="video/unit1_vocabulary.mp4" type="video/mp4">
+                    Your browser does not support the video element.
+                </video>
+            </div>
+            <button onclick="showVocabularyQuiz()">Take Quiz</button>
+        </div>
+
+        <!-- Grammar Section -->
+        <div class="section" id="grammar">
+            <h2>Grammar Focus</h2>
+            <p>Read and circle the verbs: am, is, are.</p>
+            <div class="interactive">
+                <p>Are you Peter? Yes, I am / No, I'm not.</p>
+                <button onclick="checkGrammar()">Check Answers</button>
+            </div>
+        </div>
+
+        <!-- Reading Section -->
+        <div class="section" id="reading">
+            <h2>Reading</h2>
+            <p>Read the conversation and answer the questions.</p>
+            <p>1. Who is Mr. Smith? (A. Chen Jie's class teacher / B. Chen Jie and Peter's English teacher)</p>
+            <input type="text" id="readingAnswer" placeholder="Your answer">
+            <button onclick="checkReading()">Submit</button>
+        </div>
+
+        <!-- Writing Section -->
+        <div class="section" id="writing">
+            <h2>Writing</h2>
+            <p>Complete the passage with am, is, or are.</p>
+            <textarea id="writingText" placeholder="Write here..."></textarea>
+            <button onclick="checkWriting()">Submit</button>
+        </div>
+
+        <!-- Self-Assessment Section -->
+        <div class="section" id="self-assessment">
+            <h2>Self-Assessment</h2>
+            <p>How well can you do these things?</p>
+            <table>
+                <tr><th>Skill</th><th>Very Well</th><th>OK</th><th>Needs Work</th></tr>
+                <tr><td>1. I can greet people.</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+                <tr><td>2. I can introduce myself and my friends.</td><td><input type="checkbox"></td><td><input type="checkbox"></td><td><input type="checkbox"></td></tr>
+            </table>
+        </div>
+
+        <!-- Project Section -->
+        <div class="section" id="project">
+            <h2>Project: Make Your Own Personal Profile</h2>
+            <p>Answer the questions to introduce yourself:</p>
+            <ol>
+                <li>What is your name?</li>
+                <li>How old are you?</li>
+                <li>What is your favorite sport / food?</li>
+                <li>What are your hobbies?</li>
+            </ol>
+            <textarea id="projectText" placeholder="Write your profile here..."></textarea>
+            <button onclick="submitProject()">Submit Profile</button>
+        </div>
+
+        <!-- Upload and Comment Section -->
+        <div class="section upload-area" id="upload-comment">
+            <h2>Upload Your Work & Leave a Comment</h2>
+            <input type="file" id="fileUpload" accept="image/*,application/pdf">
+            <button onclick="uploadFile()">Upload</button>
+            <div class="comment-section">
+                <textarea id="commentBox" placeholder="Leave a comment..."></textarea>
+                <button onclick="postComment()">Post Comment</button>
+                <div id="comments"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkListening() {
+            alert("Answers checked! Review your circled words.");
+        }
+        function showVocabularyQuiz() {
+            alert("Quiz started! Match the words to their meanings.");
+        }
+        function checkGrammar() {
+            alert("Grammar checked! Review your circled verbs.");
+        }
+        function checkReading() {
+            let answer = document.getElementById("readingAnswer").value;
+            if (answer.toLowerCase().includes("b")) alert("Correct!");
+            else alert("Try again!");
+        }
+        function checkWriting() {
+            let text = document.getElementById("writingText").value;
+            if (text.includes("am") && text.includes("is") && text.includes("are")) alert("Well done!");
+            else alert("Check your verbs!");
+        }
+        function submitProject() {
+            let profile = document.getElementById("projectText").value;
+            if (profile) alert("Profile submitted! Share with classmates.");
+            else alert("Please write your profile first.");
+        }
+        function uploadFile() {
+            alert("File uploaded! Check with your teacher.");
+        }
+        function postComment() {
+            let comment = document.getElementById("commentBox").value;
+            if (comment) {
+                document.getElementById("comments").innerHTML += `<p>${comment}</p>`;
+                document.getElementById("commentBox").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
