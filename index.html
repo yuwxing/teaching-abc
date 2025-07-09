@@ -2,47 +2,114 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>交互式教学网页展示</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI互动教学网页中心</title>
   <style>
     body {
-      font-family: '微软雅黑', sans-serif;
-      background: #f0f8ff;
-      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(145deg, #dfefff, #e9f4ff);
+      color: #222;
+    }
+    header {
+      background: #2d6cdf;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     h1 {
-      color: #2a5d84;
-      text-align: center;
+      margin: 0;
+      font-size: 2em;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    .upload-section, .student-section, .ai-section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #2d6cdf;
+    }
+    input[type="file"] {
+      display: block;
+      margin-top: 10px;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     li {
-      background: #fff;
-      margin: 10px auto;
-      padding: 15px;
+      padding: 10px;
+      background: #f4f8ff;
+      margin-bottom: 10px;
       border-radius: 10px;
-      box-shadow: 2px 2px 8px #ccc;
-      width: 90%;
-      max-width: 600px;
+      transition: 0.3s;
+    }
+    li:hover {
+      background: #ddeeff;
     }
     a {
       text-decoration: none;
-      font-size: 18px;
-      color: #0077cc;
+      color: #2d6cdf;
+      font-weight: bold;
     }
-    a:hover {
-      color: #00509e;
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      background-color: #2d6cdf;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1c4eac;
     }
   </style>
 </head>
 <body>
-  <h1>📚 我的交互式教学网页</h1>
-  <ul>
-    <li><a href="unit1.html" target="_blank">Unit 1: Greetings</a></li>
-    <li><a href="unit2.html" target="_blank">Unit 2: My Family</a></li>
-    <li><a href="unit3.html" target="_blank">Unit 3: School Life</a></li>
-    <!-- 在这里继续添加新网页 -->
-  </ul>
+  <header>
+    <h1>🎓 AI互动教学网页中心</h1>
+  </header>
+  <div class="container">
+
+    <section class="upload-section">
+      <h2>📤 一键上传教学网页</h2>
+      <p>上传你的 .html 教学网页文件（注意：此功能仅预览，真实上传需结合 GitHub API 或 Netlify Functions 实现）</p>
+      <input type="file" accept=".html">
+      <button onclick="alert('当前为示例上传功能，如需部署请联系AI助手')">上传</button>
+    </section>
+
+    <section class="student-section">
+      <h2>📚 学生入口</h2>
+      <ul>
+        <li><a href="unit1.html" target="_blank">Unit 1: Greetings</a></li>
+        <li><a href="unit2.html" target="_blank">Unit 2: My Family</a></li>
+        <li><a href="unit3.html" target="_blank">Unit 3: School Life</a></li>
+        <!-- 可继续添加 -->
+      </ul>
+    </section>
+
+    <section class="ai-section">
+      <h2>🤖 豆包AI互动</h2>
+      <p>向豆包AI提问你的英语学习问题：</p>
+      <iframe src="https://www.doubao.com/chat/" title="豆包AI互动窗口"></iframe>
+    </section>
+
+  </div>
 </body>
 </html>
